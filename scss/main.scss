@@ -1,0 +1,172 @@
+@import 'partials/target.scss';
+
+
+* {
+    box-sizing: border-box;
+    cursor: crosshair;
+}
+
+.content {
+    height: 88vh;
+    width: 80%;
+    background-image: url('../images/logo.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 6vh auto;
+    border: 1px solid black;
+    border-style: double;
+    .start {
+        width: 100%;
+        height: 100%;
+        .logo {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            h1 {
+                font-size: 48px;
+                color: white;
+                text-shadow: 3px 2px 2px white;
+                margin-bottom: 5px;
+            }
+
+        }
+        .logo-start{
+            display: flex;
+            justify-content: center;
+            height: 10vh;
+
+            a {
+                color: white;
+                font-size: 32px;
+                transition: 0.5s;
+            &:hover {
+                color:red;
+            }
+            }
+        }
+        .logo-info {
+            height: 34vh;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            .left {
+                width: 50%;
+                height: 50px;
+                float: left;
+                display: flex;
+                align-items: center;
+                ul li{
+                    display: inline-block;
+                    color: white;
+                    font-size: 24px;
+                    padding-right:100px;
+                    position: relative;
+                    transition: 0.5s;
+
+                    &:hover{
+                        color: red;
+                    }
+                    .instruction-hide {  // zmienic na display none;
+                        display: none;
+                        position: absolute;
+                        bottom: 150px;
+                        width: 300px;
+                        font-size: 16px;
+
+                    }
+
+                }
+                #highscore {
+                    position: relative;
+                    transition: 0.5s;
+                    &:hover{
+                        color: red;
+                    }
+
+                    ul {
+                        display: none; // do zmiany
+                        list-style-type:  none;
+                        border: 1px solid white;
+                        height: 200px;
+                        width: 200px;
+                        position: absolute;
+                        bottom: 200px;
+                        right: 40px;
+                        color: white;
+                        padding-left: 0;
+                        li {
+                            width: 200px;
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+            .right{
+                width: 50%;
+                height: 50px;
+                float: right;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                a {
+                    color: white;
+                    font-size: 24px;
+                    margin-right: 40px;
+                    transition: 0.5s;
+                &:hover {
+                    color: red;
+                }
+
+
+                }
+
+            }
+        }
+
+
+
+    }
+
+    .game {
+        background-image: url('../images/makieta.jpg');
+        display: none;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .info{
+            height: 60px;
+            background-color: white;
+            opacity: 0.9;
+            border-bottom: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 30px;
+            user-select: none;
+
+            .bullet  {
+                width: 33.3333%;
+                padding-left: 20px;
+                display: flex;
+                align-items: center;
+
+                img {
+                    display: inline-block;
+                    width: 15px;
+                    height: 55px;
+                }
+            }
+            .time {
+                width: 33.3333%;
+            }
+            .score{
+                width: 33.3333%;
+                padding-right: 150px;
+            }
+        }
+    }
+}

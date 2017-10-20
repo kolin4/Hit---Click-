@@ -11,6 +11,24 @@ $(function(){
 
 
 // event
+    let hideElem = $('.instruction-hide');
+    let inst = $('#instruction');
+    inst.on('mouseenter',function(e){
+        hideElem.css({
+            'opacity':1,
+            'visibility':'visible'
+        })
+    })
+    inst.on('mouseleave',function(e){
+        hideElem.css({
+            'opacity':0,
+            'visibility':'none'
+        })
+    })
+
+
+
+
     let btnStart = $('#start');
 
     btnStart.on('click', function(event){

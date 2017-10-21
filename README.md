@@ -1,10 +1,13 @@
-# Hit---Click-   [ game under production ] [ wait for it  ;)] 
+# Hit---Click-   ( shooter game )
 INSTRUCTION :
+Game lasts 30sec.
 
-R- Reload 
-S- Slow motion mode ( 4s ) 
+R - reload
+S - slow motion
+Slow motion - stops time for 4s.
+Green circle - hostage. You have 3 seconds to shot target behind hostage, if you don't do this, hostage is dead                  Hostage dead = -10pts 
+The closer center of target you shot - you get more points
 
-Green circle - hostage. You need to shot target behind hostage in 3s. If not - hostage down.
-Hostage down = -10 points.
+Game made with Js and jquery.
 
-
+goog Luck :)

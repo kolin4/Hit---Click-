@@ -1,3 +1,28 @@
+window.onload = () =>{
+
+    if (JSON.parse( localStorage.getItem('highscore') != null )) {
+        highscore = JSON.parse( localStorage.getItem('highscore')) ;
+        console.log(highscore.length);
+    }
+    if ( highscore.length > 1){
+        highscore.sort(function(a,b){
+            return b.score - a.score
+        })
+    }
+
+    if (highscore.length > 5){
+        let x = highscore.slice(0,5);
+        highscore = x;
+    }
+    let info = document.querySelector('#resultHigh');
+
+    let newHighscore = highscore.map( (elem, i) =>{
+        return `<li>${i+1}. ${elem.name} <span>${elem.score}</span></li>`
+    })
+    console.log(newHighscore);
+    info.innerHTML =`<h2>Highscore:</h2> ${newHighscore.join("")}` ;
+}
+
 $(function(){
 
 
@@ -7,13 +32,49 @@ $(function(){
     let reload1 = new Audio('./sounds/reload-nowy.mp3');
     let reload2 = new Audio('./sounds/reload-nowy2.mp3');
 
-
-
-
 // event
-    let btnStart = $('#start');
 
-    btnStart.on('click', function(event){
+    let highElemHide = $('#resultHigh');
+    let highElem = $('#highscore');
+
+
+    highElem.on('mouseenter', function(){
+        highElemHide.css({
+            'opacity':1,
+            'visibility':'visible'
+        })
+
+    })
+
+    highElem.on('mouseleave', function(){
+        highElemHide.css({
+            'opacity':0,
+            'visibility':'hidden'
+        })
+
+    })
+
+    let hideElem = $('.instruction-hide');
+    let inst = $('#instruction');
+    inst.on('mouseenter',function(e){
+
+        hideElem.css({
+            'opacity':1,
+            'visibility':'visible'
+        })
+    })
+    inst.on('mouseleave',function(e){
+        hideElem.css({
+            'opacity':0,
+            'visibility':'none'
+        })
+    })
+    // future start game btn
+    // $('body').on('click', '.btnStart', startGame);
+
+
+    let btnStart = $('#start');
+    function startGame(){
         event.stopPropagation();
 
         // shot.play();
@@ -38,7 +99,8 @@ $(function(){
             }
 
         },1000);
-    })
+    }
+    btnStart.on('click', startGame)
 
     var ammo = 5;
 $('.game').on('click', function(event){
@@ -357,7 +419,8 @@ $('.hostage').on('click', function(e){
 })
 
 ////////////////////////////   Functions   ////////////////////////////
-var timerCounter = 30   ;
+var timerCounter = 29 ;
+let highscore = [];
  function gameTime(){
      let timer =  $('.time');
 
@@ -386,12 +449,22 @@ var timerCounter = 30   ;
              lastScore.addClass('lastScore');
              $('body').append(endText);
              $('body').append(lastScore);
-
-
-
              clearInterval(timerInt);
+            //  let btnEnd = $('<span>');
+            //  btnEnd.text('PLAY AGAIN');
+            //  btnEnd.addClass('btnStart');
+            //  $('body').append(btnEnd);
 
 
+             setTimeout(()=>{
+                 let name = prompt('Enter Your name').slice(0,9);
+                 let userObj = {
+                     name:name,
+                     score:wynik
+                 }
+                 highscore.push(userObj);
+                 localStorage.setItem('highscore', JSON.stringify(highscore));
+             },1000);
          }
 
      },1000);

@@ -29,7 +29,6 @@ $(function(){
 //Sounds
 
     let ammoOut = new Audio('./sounds/ammo-empty.wav');
-    let reload1 = new Audio('./sounds/reload-nowy.mp3');
     let reload2 = new Audio('./sounds/reload-nowy2.mp3');
 
 // event

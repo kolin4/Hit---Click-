@@ -26,7 +26,7 @@ gulp.task('sass', function () {
     .pipe(plumber({ errorHandler: handleError }))
     .pipe(sourcemaps.init())
     .pipe(sass({
-        outputStyle: 'nested' // nested, expanded , compact , compressed
+        outputStyle: 'compressed' // nested, expanded , compact , compressed
 
     }))
     .pipe(autoprefixer({
